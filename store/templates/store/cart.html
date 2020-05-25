@@ -1,0 +1,49 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{%block content%}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<div class="box-element">
+	<a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+	<br>
+	<br>
+	<table class="table">
+		<tr>
+			<th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
+			<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
+			<th>
+				<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
+			</th>
+		</tr>
+	</table>
+</div>
+
+<div class="box-element">
+	<div class="row cart-row">
+		<div style="flex:2"></div>
+		<div style="flex:2"><strong>Item</strong></div>
+		<div style="flex:1"><strong>Price</strong></div>
+		<div style="flex:1"><strong>Quantity</strong></div>
+		<div style="flex:1"><strong>Total</strong></div>
+	</div>
+ {%for item in items%}	
+	<div class="row cart-row p-4 m-3" style="border: 2px solid black;border-radius: 8px;">
+		<div class="img-container" style="width: 160px;height: 150px;margin: 5px;">
+			<div style="flex:2"><img class="row-image img-fluid" src="{{ item.product.imageURL }}"></div>
+		</div>
+		<div style="flex:2"><p>{{item.product.name}}</p></div>
+		<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
+		<div style="flex:1">
+			<p class="quantity">{{item.quantity}}</p>
+			<div class="quantity row">
+				<button data-product="{{item.product.id}}" data-action="delete" class="btn btn-danger update-cart">Delete</button>
+				<div class='col' style="display: flex;flex-direction: column;">
+					<img style="cursor: pointer;" width="15" class="m-1 chg-quantity update-cart" data-product="{{item.product.id}}" data-action="add" src="{% static  'images/arrow-up.png' %}">
+					<img style="cursor: pointer;" width="15" class="m-1 chg-quantity update-cart" data-product="{{item.product.id}}" data-action="remove" src="{% static  'images/arrow-down.png' %}">
+				</div>
+			</div>
+		</div>
+		<div style="flex:1"><p>${{item.get_total|floatformat:2}}</p></div>
+	</div>
+{%endfor%}	
+{%endblock%}

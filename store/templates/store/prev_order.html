@@ -1,0 +1,39 @@
+{%extends "store/main.html"%}
+{%load static%}
+{%block content%}
+<link rel="stylesheet" href="{%static 'css/order.css' %}">
+<p class="order-history">
+    Your Order History
+    </p>
+<div class="order-container" style="display: flex;flex-wrap: wrap;justify-content: centers;"> 
+    {%for item in items%}
+    <!-- Orders Card -->
+    <div class="order-card">
+        <div class="order-card-inner">
+            <div class="order-card-front">
+                <div class="front-text">
+                    <h3 class="order-date">{{item.product.name}}</h3><span id="order-date">Quantity: {{item.quantity}}</span>
+                    <div class="product-pic"><img src="{{item.product.imageURL}}" alt="image" width="70%"></div>
+                    <div class="product-name">Delivered Successfully</div>
+                    
+                </div>
+            </div>
+            <div class="order-card-back">
+                <div class="back-text">
+                    <div class="order-number">
+                        OrderID: <span class="order-num">{{item.order.id}}</span>
+                    </div>
+                    <div class="payment-mode">
+                        <p>Payment: Completed</p>
+                    </div>
+                    <div class="order-summary">
+                        Amount Paid: <span>${{item.product.price}}</span><br>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    {%endfor%}
+    <!-- Orders Card Ends -->
+</div>
+{%endblock%}

@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(124, 124, 124);
+    font-family: Roboto, sans-serif;
+    color: black;
+}
+.order-history{
+    background-color: teal;
+    padding: 20px 20px 20px 60px;
+    color: white;
+    font-size: 1.7rem;
+    
+}
+
+.order-card{
+    background-color: transparent;
+    width: 400px;
+    max-width: 400px;
+    height: 350px;
+    perspective: 1000px;
+    margin: 50px;
+    
+}
+
+.order-card-inner{
+    position: relative;
+    background-color: #ADA8B6;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(50, 50, 50, 0.45);
+    -moz-box-shadow:    0px 5px 10px 0px rgba(50, 50, 50, 0.45);
+    box-shadow:         0px 5px 10px 0px rgba(50, 50, 50, 0.45);
+}
+
+.order-card:hover .order-card-inner{
+    transform: rotateY(180deg);
+    
+}
+
+.order-card-front,
+.order-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.order-card-back{
+    background-color: #ADA8B6;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+
+}
+.front-text{
+    padding: 10px;
+}
+
+.order-date{
+    padding:20px 0 0 20px;
+}
+
+#order-date{
+    padding-left: 20px;
+}
+
+.product-pic{
+    padding: 20px 0 0 20px;
+    
+}
+
+.product-name{
+    padding: 20px;
+    font-size: 18px;
+}
+
+
+
+.back-text{
+    padding: 20px;
+}
+
+.order-number{
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+}
+
+.shipping-address{
+    padding-bottom: 20px;
+
+}
+.order-summary{
+    padding-bottom: 20px;
+}
+
+.buy-again{
+    background-color: teal;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    color:white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(50, 50, 50, 0.45);
+    -moz-box-shadow:    0px 5px 10px 0px rgba(50, 50, 50, 0.45);
+    box-shadow:         0px 5px 10px 0px rgba(50, 50, 50, 0.45);
+    cursor: pointer;
+    transition: transform 0.2s ;
+}
+
+.buy-again:hover{
+    transform: scale(1.1);
+}

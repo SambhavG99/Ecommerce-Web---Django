@@ -1,0 +1,55 @@
+body{
+    background-color: #313131;
+}
+
+button{
+    background-color: transparent;
+    color: #ed5107;
+    padding: 16px 45px;
+    border: 1px solid #ed5107;
+    transition: color 0.3s ease-out 0.3s;
+    font-family: Verdana;
+    cursor: pointer;
+    overflow: hidden;
+    
+
+/*     For Centering the Button     */
+    position: absolute;
+    top: 75%;
+    left: 51.5%;
+    transform: translate(-50%,-50%);
+}
+
+
+button::before , button::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    transform: skewY(-12deg);
+    transition: all 0.5s ease-out;
+    background-color: #ed5107;
+    width: 100%;
+    height: 100%;
+    z-index: -1;    
+}
+
+button::before{
+    top: -65px;
+}
+
+button::after{
+    bottom: -65px;
+}
+
+button:hover::before{
+    top:-20px;
+}
+
+button:hover::after{
+    bottom:-20px;
+}
+
+button:hover{
+    color: #ffffff;
+
+}
