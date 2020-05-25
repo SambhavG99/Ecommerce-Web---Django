@@ -1,49 +1,62 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {%block content%}
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="{%static 'css/cart.css'%}">
 
-<div class="box-element">
-	<a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
-	<br>
-	<br>
-	<table class="table">
-		<tr>
-			<th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
-			<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
-			<th>
-				<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
-			</th>
-		</tr>
-	</table>
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+
+
+</div>
+{%if not items%}
+<p class="your-cart">
+	<span id="one"> Shopping Cart</span> <br>
+	<span id="two"> Your Cart is Empty</span> <br>
+	<span id="three"> Your saved items will appear here.</span> 
+</p>
+{%endif%}
+
+<div class="detail-items">
+	<span>Items: <span id="item-num">{{order.get_cart_items}}</span></span>
+	<span>Total Amount: <span id="total">${{order.get_cart_total|floatformat:2}}</span></span>
+	<a href="{%url 'checkout'%}">
+		<span class="checkout"> Checkout</span>  
+	</a>
 </div>
 
-<div class="box-element">
-	<div class="row cart-row">
-		<div style="flex:2"></div>
-		<div style="flex:2"><strong>Item</strong></div>
-		<div style="flex:1"><strong>Price</strong></div>
-		<div style="flex:1"><strong>Quantity</strong></div>
-		<div style="flex:1"><strong>Total</strong></div>
-	</div>
- {%for item in items%}	
-	<div class="row cart-row p-4 m-3" style="border: 2px solid black;border-radius: 8px;">
-		<div class="img-container" style="width: 160px;height: 150px;margin: 5px;">
-			<div style="flex:2"><img class="row-image img-fluid" src="{{ item.product.imageURL }}"></div>
+
+<!-- Cart Card -->
+{%for item in items%}	
+<div class="cart-card">
+	<div class="cart-card-inner">
+	  <div class="image-container">
+		<img src="{{item.product.imageURL}}" alt="headphones">
+	  </div>	
+		<div class="name-text">
+			<div id="heading-text">Name</div>
+			<span class="name-detail">{{item.product.name}}</span>
 		</div>
-		<div style="flex:2"><p>{{item.product.name}}</p></div>
-		<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
-		<div style="flex:1">
-			<p class="quantity">{{item.quantity}}</p>
-			<div class="quantity row">
-				<button data-product="{{item.product.id}}" data-action="delete" class="btn btn-danger update-cart">Delete</button>
-				<div class='col' style="display: flex;flex-direction: column;">
-					<img style="cursor: pointer;" width="15" class="m-1 chg-quantity update-cart" data-product="{{item.product.id}}" data-action="add" src="{% static  'images/arrow-up.png' %}">
-					<img style="cursor: pointer;" width="15" class="m-1 chg-quantity update-cart" data-product="{{item.product.id}}" data-action="remove" src="{% static  'images/arrow-down.png' %}">
+		<div class="price-text">
+			<div id="heading-text">Price</div>
+			<span class="price-detail">${{item.product.price|floatformat:2}}</span>
+		</div>
+		<div class="quantity-text">
+			<div id="heading-text">Quantity</div>
+			<span class="quantity-detail" style="display: flex;">
+				<p id="count">{{item.quantity}}</p>
+				<div class="counter-btn">
+					<div id="up" data-product="{{item.product.id}}" data-action="add" class="update-cart"><i class="fas fa-angle-up"></i></div>
+					<div id="down" data-product="{{item.product.id}}" data-action="remove" class="update-cart"><i class="fas fa-angle-down"></i></div>
 				</div>
-			</div>
+			</span>
 		</div>
-		<div style="flex:1"><p>${{item.get_total|floatformat:2}}</p></div>
+		<div class="total-amount">
+			<div id="heading-text">Amount</div>
+			<span class="total-detail">${{item.get_total|floatformat:2}}</span>
+
+		</div>
 	</div>
-{%endfor%}	
+	<span data-product="{{item.product.id}}" data-action="delete" class="btn btn-danger update-cart remove-cart">Remove from Cart</span>  
+</div>
+{%endfor%}
+<!-- Cart Card Ends -->
 {%endblock%}

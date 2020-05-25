@@ -1,0 +1,244 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: unset;
+}
+.hidden{
+    display:none;
+}
+nav{
+    display: flex !important;
+}
+p{
+    margin-top: unset;
+    margin-bottom: unset;
+}
+body{
+    background-color: #313131;
+
+}
+
+.form-group-name{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 30%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+    
+}
+.form-group-email{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 20%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.form-group-address{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 40%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+
+}
+
+.form-group-area{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+    
+}
+.row{
+    margin-right: unset !important;
+    margin-left: unset !important;
+}
+p{
+    margin-left: 6px;
+}
+.form-group-pin{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 70%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.form-group-city{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 60%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+    
+}
+
+
+.form-group-text #checkout{
+    
+    font-size: 2rem;
+    padding-left: 30px;
+    text-align: center;
+    color: white;
+    font-family: Roboto, sans-serif;
+    /* for centering the form-group */
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+
+}
+
+.form-group-text #details{
+    font-size: 1rem;
+    padding-left: 30px;
+    text-align: center;
+    color: rgb(202, 202, 202);
+    font-family: Roboto, sans-serif;
+    /* for centering the form-group */
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+
+
+
+input{
+    display: block;
+    width: 16rem;
+    color: #eee;
+    border: none;
+    border: 2px solid #eee;
+    background-color: transparent;
+    padding: 12px;
+
+}
+
+label{
+    position: absolute;
+    top: -40%;
+    left:0;
+    opacity:1;
+    transition: all 0.3s;
+    font-family: Verdana;
+    font-size: 13px;
+    color: #eee;
+
+}
+
+/* The placeholder-shown CSS pseudi-class represents any <input> or <textarea> element that is currently displaying placeholder text  */
+
+input:placeholder-shown + label{
+    top:20%;
+    left:12px;
+    opacity: 0;
+
+}
+
+
+
+
+.row .design-btn{
+    background-color: transparent;
+    color: #ed5107;
+    padding: 16px 45px;
+    border: 1px solid #ed5107;
+    transition: color 0.3s ease-out 0.3s;
+    font-family: Verdana;
+    cursor: pointer;
+    overflow: hidden;
+    
+
+/*     For Centering the Button     */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-40%,-50%);
+}
+#make-payment{
+    background-color: transparent;
+    border: 1px solid cyan;
+
+    color: cyan;
+}
+#make-payment::before , #make-payment::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    transform: skewY(-12deg);
+    transition: all 0.5s ease-out;
+    background-color:cyan;
+    width: 100%;
+    height: 100%;
+    color: white;
+    z-index: -1;    
+}
+
+.design-btn::before , .design-btn::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    transform: skewY(-12deg);
+    transition: all 0.5s ease-out;
+    background-color: #ed5107;
+    width: 100%;
+    height: 100%;
+    z-index: -1;    
+}
+
+.design-btn::before{
+    top: -65px;
+}
+
+.design-btn::after{
+    bottom: -65px;
+}
+
+.design-btn:hover::before{
+    top:-20px;
+}
+
+.design-btn:hover::after{
+    bottom:-20px;
+}
+
+.design-btn:hover{
+    color: #ffffff !important;
+
+}
+@media screen and (max-width: 768px){
+    .form-group-text #checkout{
+        width: 50%;
+    }
+    .form-group-text #details{
+        width: 60%;
+    }
+    .form-group-name,
+    .form-group-email,
+    .form-group-address,
+    .form-group-area,
+    .form-group-pin,
+    .form-group-city{
+        width: 50%;
+    }
+}

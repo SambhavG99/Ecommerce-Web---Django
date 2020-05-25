@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from django.http import JsonResponse
 import json
@@ -42,10 +42,14 @@ def checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, completed=False)
         items = order.orderitem_set.all()
+        if not items:
+            return redirect(store)
     else:
         cartData = cookieCart(request)
         order = cartData["order"]
-        items = cartData["items"]        
+        items = cartData["items"]   
+        if not items:
+            return redirect(store)     
         
     context = {
         "order": order,
@@ -59,7 +63,9 @@ def prev_order(request):
         customer = request.user.customer
         orders = Order.objects.filter(customer=customer,completed=True)
         for order in orders:
-            items += OrderItem.objects.all().filter(order=order) 
+            items += OrderItem.objects.all().filter(order=order)
+    else:
+        return redirect(store)
     context = {
         "items":items,
     }

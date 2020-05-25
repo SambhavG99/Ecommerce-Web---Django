@@ -198,6 +198,12 @@
      .show-desktop{
          display: none;
      }
+     nav{
+      margin-bottom:18px;
+    }
+    .product{
+      width:221px;
+    }
   }
 
 

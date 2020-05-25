@@ -139,6 +139,22 @@ body{
     
 }
 
+.add-btn{
+  cursor: pointer;
+  padding: 7px 14px;
+  border:none;
+  border-radius: 8px;
+  color: #000;
+  position: absolute;
+  right: 13px;
+  bottom: 9px;
+
+  border: 3px solid pink;
+}
+.container{
+  position: relative;
+}
+
 .category ul li:hover{
     transform: scale(1.2);
     background-color: rgb(255, 102, 102);
