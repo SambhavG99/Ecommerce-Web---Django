@@ -22,7 +22,7 @@
           <ul>
               <li><a href="{% url 'store' %}">Home</a></li>
               <li><a href="{% url 'prev_order' %}">Orders</a></li>
-              <li><a href="{% url 'cart' %}"><i class="fab fa-opencart"></i>   Cart</a></li>
+              <li><a href="{% url 'cart' %}"><i class="fab fa-opencart"></i>   Cart</a><span class='cart-items'>{{order.get_cart_items}}</span></li>
               <li><a href="{%url 'admin:index'%}"><i class="fas fa-user" ></i></a></li>
           </ul>
       </div>
@@ -37,7 +37,7 @@
               <ul>
                   <li><a href="{% url 'store' %}">Home</a></li>
                   <li><a href="{% url 'prev_order' %}">Orders</a></li>
-                  <li><a href="{% url 'cart' %}"><i class="fab fa-opencart"></i>   Cart</a></li>
+                  <li><a href="{% url 'cart' %}"><i class="fab fa-opencart"></i>   Cart</a> <span class='cart-items'>{{order.get_cart_items}}</span></li>
                   <li><a href="{%url 'admin:index'%}"><i class="fas fa-user" ></i>     Login</a></li>
               </ul>
               </div>

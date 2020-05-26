@@ -66,9 +66,8 @@
           <span class="name" style="font-size: 16px;color:#000;">{{product.name}}</span>
           <span class="price" style="font-size: 12px;color:#000;">${{product.price|floatformat:2}}</span>
           
-              <button data-product="{{product.id}}" data-action="add" class="add-btn update-cart" onclick="this.innerHTML = 'Adding to Cart...'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
-              <!-- <i class="far fa-check-circle" style ="visibility: hidden"></i> -->
-              <!-- <span class="added" style ="visibility: hidden">Added To Cart</span> -->
+              <button data-product="{{product.id}}" data-action="add" class="add-btn update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
+             
       </div>
   {%endfor%}  
 </div>  

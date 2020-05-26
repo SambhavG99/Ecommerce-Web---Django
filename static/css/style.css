@@ -63,7 +63,12 @@ body{
     width: 100%;
     text-align: center;
   }
-  
+  .cart-items{
+    background-color: darkorange;
+    color:white;
+    padding: 15px;
+    border-radius: 8px;
+  }
   /* Number text (1/3 etc) */
   .numbertext {
     color: #f2f2f2;
