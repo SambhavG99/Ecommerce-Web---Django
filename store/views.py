@@ -1,11 +1,9 @@
-import requests
 from django.shortcuts import render,redirect
 from .models import *
 from django.http import JsonResponse
 import json
 import datetime
 from .utils import cookieCart
-import Checksum
 # Create your views here.
 def store(request):
     if request.user.is_authenticated:
@@ -142,69 +140,3 @@ def processOrder(request):
 
             
     return JsonResponse("Order Placed", safe=False)
-
-def payment_view(request):
-        # import checksum generation utility
-        # You can get this utility from https://developer.paytm.com/docs/checksum/
-        
-
-        # initialize a dictionary
-        paytmParams = dict()
-
-        # body parameters
-        paytmParams["body"] = {
-
-            # for custom checkout value is 'Payment' and for intelligent router is 'UNI_PAY'
-            "requestType" : "Payment",
-
-            # Find your MID in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
-            "mid" : "YOUR_MID_HERE",
-
-            # Find your Website Name in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
-            "websiteName" : "YOUR_WEBSITE_NAME",
-
-            # Enter your unique order id
-            "orderId" : "YOUR_ORDER_ID",
-
-            # on completion of transaction, we will send you the response on this URL
-            "callbackUrl" : "YOUR_CALLBACK_URL",
-
-            # Order Transaction Amount here
-            "txnAmount" : {
-
-                # Transaction Amount Value
-                "value" : "TRANSACTION_AMOUNT_VALUE",
-
-                # Transaction Amount Currency
-                "currency" : "TRANSACTION_AMOUNT_CURRENCY",
-            },
-
-            # Customer Infomation here
-            "userInfo" : {
-
-                # unique id that belongs to your customer
-                "custId" : "CUSTOMER_ID",
-            },
-        }
-
-        # Generate checksum by parameters we have in body
-        # Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
-        checksum = Checksum.generate_checksum_by_str(json.dumps(paytmParams["body"]), "YOUR_KEY_HERE")
-
-        # head parameters
-        paytmParams["head"] = {
-
-            # put generated checksum value here
-            "signature"	: checksum
-        }
-
-        # prepare JSON string for request
-        post_data = json.dumps(paytmParams)
-
-        # for Staging
-        url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=YOUR_MID_HERE&orderId=YOUR_ORDER_ID"
-
-        # for Production
-        # url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=YOUR_MID_HERE&orderId=YOUR_ORDER_ID"
-
-        response = requests.post(url, data = post_data, headers = {"Content-type": "application/json"}).json()
