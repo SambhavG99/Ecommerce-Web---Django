@@ -49,6 +49,16 @@ body{
     transform: translate(-50%,-50%);
 
 }
+.form-group-phone{
+    width: 20%;
+
+    /* for centering the form-group */
+    position: absolute;
+    top: 80%;
+    left: 42%;
+    transform: translate(-50%,-50%);
+
+}
 
 .form-group-area{
     width: 20%;
@@ -171,7 +181,7 @@ input:placeholder-shown + label{
 
 /*     For Centering the Button     */
     position: absolute;
-    top: 80%;
+    top: 92%;
     left: 50%;
     transform: translate(-40%,-50%);
 }
@@ -238,7 +248,8 @@ input:placeholder-shown + label{
     .form-group-address,
     .form-group-area,
     .form-group-pin,
-    .form-group-city{
+    .form-group-city,
+    .form-group-phone{
         width: 50%;
     }
 }

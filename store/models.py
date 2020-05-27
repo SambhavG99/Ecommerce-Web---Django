@@ -43,6 +43,15 @@ class Order(models.Model):
         for item in orderitems:
            total += item.get_total
         return total
+
+    @property
+    def get_cart_total_paisa(self):
+        total = 0
+        orderitems = self.orderitem_set.all()
+        for item in orderitems:
+            total += item.get_total
+        total *= 100
+        return total
     
     @property 
     def get_cart_items(self):
@@ -79,6 +88,7 @@ class OrderItem(models.Model):
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete= models.SET_NULL,null=True,blank=True)
     order = models.ForeignKey(Order, on_delete = models.SET_NULL, blank=True, null=True)
+    phone = models.IntegerField(default="1234567890",null=True,blank=True)
     address = models.CharField(max_length=200,null=True)
     city = models.CharField(max_length=200,null=True)
     state = models.CharField(max_length=200,null=True)
@@ -87,5 +97,14 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
+
+class PaymentOrder(models.Model):
+    customer = models.ForeignKey(Customer, on_delete= models.SET_NULL,null=True,blank=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL,null=True,default=True)
+    payment_id = models.CharField(max_length=255,null=True,default=True)
+
+    def __int__(self):
+        return self.order.id
+
 
 

@@ -17,7 +17,7 @@
 
 <div class="detail-items">
 	<span>Items: <span id="item-num">{{order.get_cart_items}}</span></span>
-	<span>Total Amount: <span id="total">${{order.get_cart_total|floatformat:2}}</span></span>
+	<span>Total Amount: <span id="total">₹{{order.get_cart_total|floatformat:2}}</span></span>
 	<a href="{%url 'checkout'%}">
 		<span class="checkout"> Checkout</span>  
 	</a>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="price-text">
 			<div id="heading-text">Price</div>
-			<span class="price-detail">${{item.product.price|floatformat:2}}</span>
+			<span class="price-detail">₹{{item.product.price|floatformat:2}}</span>
 		</div>
 		<div class="quantity-text">
 			<div id="heading-text">Quantity</div>
@@ -51,7 +51,7 @@
 		</div>
 		<div class="total-amount">
 			<div id="heading-text">Amount</div>
-			<span class="total-detail">${{item.get_total|floatformat:2}}</span>
+			<span class="total-detail">₹{{item.get_total|floatformat:2}}</span>
 
 		</div>
 	</div>

@@ -2,19 +2,27 @@
 {%load static%}
 {%block content%}
 <link rel="stylesheet" href="{%static 'css/order.css' %}">
+
 <p class="order-history">
     Your Order History
+    <p style="text-align: center;color:#fff;margin-top: 8px;">Total Orders : <strong>{{orders|length}}</strong></p>
     </p>
-<div class="order-container" style="display: flex;flex-wrap: wrap;justify-content: centers;"> 
+{%for order in orders reversed%}
+<hr>
+<h3 align="center" style="color: #fff;">Order ID: {{order.id}}</h3>
+<div class="order-container" style="display: flex;flex-wrap: wrap;justify-content: center;"> 
     {%for item in items%}
-    <!-- Orders Card -->
+        {%if order.id == item.order.id%}
+    <!-- Orders Card --> 
     <div class="order-card">
         <div class="order-card-inner">
             <div class="order-card-front">
                 <div class="front-text">
                     <h3 class="order-date">{{item.product.name}}</h3><span id="order-date">Quantity: {{item.quantity}}</span>
-                    <div class="product-pic"><img src="{{item.product.imageURL}}" alt="image" width="70%"></div>
-                    <div class="product-name">Delivered Successfully</div>
+                    <div class="product-pic">
+                        <img class="product-img" src="{{item.product.imageURL}}" alt="image">
+                    </div>
+                    <div class="product-name">Delivered on {{item.date_added}}</div>
                     
                 </div>
             </div>
@@ -27,13 +35,15 @@
                         <p>Payment: Completed</p>
                     </div>
                     <div class="order-summary">
-                        Amount Paid: <span>${{item.product.price}}</span><br>
+                        Amount Paid: <span>₹{{item.product.price}}</span><br>
                     </div>
                 </div>
             </div>
         </div>  
     </div>
+    {%endif%}
     {%endfor%}
     <!-- Orders Card Ends -->
 </div>
+{%endfor%}
 {%endblock%}

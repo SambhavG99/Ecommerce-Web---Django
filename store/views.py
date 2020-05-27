@@ -4,6 +4,7 @@ from django.http import JsonResponse
 import json
 import datetime
 from .utils import cookieCart
+
 # Create your views here.
 def store(request):
     if request.user.is_authenticated:
@@ -42,6 +43,7 @@ def checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, completed=False)
         items = order.orderitem_set.all()
+        customer_details = Customer.objects.get(name=customer)
         if not items:
             return redirect(store)
     else:
@@ -52,6 +54,7 @@ def checkout(request):
             return redirect(store)     
         
     context = {
+        "customer":customer_details,
         "order": order,
         "items": items
     }
@@ -67,6 +70,7 @@ def prev_order(request):
     else:
         return redirect(store)
     context = {
+        "orders":orders,
         "items":items,
     }
     return render(request,"store/prev_order.html",context)
@@ -101,11 +105,13 @@ def processOrder(request):
     data = json.loads(request.body)
     transaction_id = datetime.datetime.now().timestamp()
 
+    razorpay_id = data['razorpay']['razorpay_payment_id']
     
     address = data['shipping']['address']
     city = data['shipping']['city']
     state = data['shipping']['state']
     zipcode = data['shipping']['zipcode']
+    phone = data['shipping']['phone']
 
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -135,8 +141,12 @@ def processOrder(request):
         order.save()
     
     if order.shipping == True:
-        ShippingAddress.objects.create(customer=customer,order=order,address=address,city=city,state=state,zipcode=zipcode)
-        
+        ShippingAddress.objects.create(customer=customer,order=order,address=address,city=city,state=state,zipcode=zipcode,phone=phone)
+
+    # Saving payment details to PaymentOrder model
+
+    PaymentOrder.objects.create(customer=customer,order=order,payment_id=razorpay_id)  
 
             
     return JsonResponse("Order Placed", safe=False)
+

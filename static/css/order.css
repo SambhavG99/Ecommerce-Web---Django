@@ -18,9 +18,9 @@ body{
 
 .order-card{
     background-color: transparent;
-    width: 400px;
+    width: 282px;
     max-width: 400px;
-    height: 350px;
+    height: 332px;
     perspective: 1000px;
     margin: 50px;
     
@@ -71,13 +71,17 @@ body{
 }
 
 .product-pic{
-    padding: 20px 0 0 20px;
-    
+    padding: 20px 0 0px 0;
+}
+.product-img{
+    height: webkit-fill-available;
+    border-radius: 8px;
 }
 
 .product-name{
-    padding: 20px;
-    font-size: 18px;
+    margin-top: 4px;
+    text-align: center;
+    font-size: 14px;
 }
 
 
