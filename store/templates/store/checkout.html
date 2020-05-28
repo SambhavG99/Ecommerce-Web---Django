@@ -144,6 +144,10 @@
                 userFormData.email = form.email.value;
             }
             let total_amt_inpaisa = "";
+            email = '{{customer.email}}';
+            if(email.trim() == ""){
+                email = form.email.value.trim()
+            }
             phone = document.getElementById('phone').value.trim();
             if(phone.length !=10){
                 return alert("Enter a valid Phone no.");
@@ -191,8 +195,8 @@
                 },
                 "prefill": {
                     "name": "{{customer.name}}", // pass customer name
-                    "email": '{{customer.email}}',// customer email
-                    "contact": '' //customer phone no.
+                    "email": email,// customer email
+                    "contact": "+91"+phone //customer phone no.
                 },
                 "notes": {
                     "address": "address" //customer address 

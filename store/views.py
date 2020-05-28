@@ -1,4 +1,8 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login,logout,authenticate
+from django.contrib import messages
+from .forms import CreateUserForm
 from .models import *
 from django.http import JsonResponse
 import json
@@ -47,6 +51,7 @@ def checkout(request):
         if not items:
             return redirect(store)
     else:
+        customer_details = "Guest User"
         cartData = cookieCart(request)
         order = cartData["order"]
         items = cartData["items"]   
@@ -150,3 +155,40 @@ def processOrder(request):
             
     return JsonResponse("Order Placed", safe=False)
 
+def register(request):
+    form = CreateUserForm()
+    if request.method == "POST":
+        print("in")
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            print("Valid")
+            form.save()
+            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+            user = User.objects.get(username=username)
+            Customer.objects.create(user=user,name="user",email=email)
+            
+            messages.success(request,"Account was created for " + username)
+            return redirect("login")
+    context = {"form":form}
+    return render(request,"store/register.html",context)
+
+def loginUser(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print(username)
+        user = authenticate(request, username=username,password=password)
+        if user is not None:
+            print("in2")
+            login(request, user)
+            return redirect("store")
+        else:
+            messages.info(request,"Username or Password is incorrect")
+
+    context = {}
+    return render(request,"store/login.html",context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect("login")

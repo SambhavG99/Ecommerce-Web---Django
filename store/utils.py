@@ -31,6 +31,7 @@ def cookieCart(request):
             items.append(item)
             order['get_cart_total'] = total
             order['get_cart_items'] = cartItems
+            order['get_cart_total_paisa'] = total*100
             if product.digital == False:
                 order['shipping'] = True
         except:

@@ -1,0 +1,42 @@
+{%extends "store/main.html"%}
+{%load static%}
+{%block content%}
+<link rel="stylesheet" href="{% static 'css/input.css'%}">
+<link rel="stylesheet" href="{% static 'css/button-login.css'%}">
+
+<form class="login-form" method="POST">
+    {% csrf_token%}
+    <!-- <div class="form-group-logo">
+        <img src="{% static 'images/bg.jpg' %}" alt="" width="20%">
+    </div> -->
+    <!-- <div class="form-group-google">
+        Google Sign-up Here
+    </div> -->
+    <div class="form-group-text">
+        <p>Sign Up Here</p>
+    </div>
+    <p style="color:#fff">{{form.errors}}</p>
+    <div class="form-group-name">
+        {{form.username}}
+        <label for="name">Username </label>
+    </div>
+    <div class="form-group-email">
+        {{form.email}}
+        <label for="email">Email </label>
+    </div>
+    <div class="form-group-pass">
+        {{form.password1}}
+        <label for="pwd">Password </label>
+    </div>
+    <div class="form-group-pass2">
+        {{form.password2}}
+        <label for="pwd">Confirm Password </label>
+    </div>
+    <button style="top:83%;" type="submit">Create</button>
+    <div class="form-group-signin" style="top:90%">
+        <div>Already registered? <a href="{%url 'login'%}">Sign-in </a></div>
+    </div>
+</form>
+
+
+{%endblock%}

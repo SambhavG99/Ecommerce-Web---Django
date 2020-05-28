@@ -1,0 +1,33 @@
+{%extends "store/main.html"%}
+{%load static%}
+{%block content%}
+<link rel="stylesheet" href="{% static 'css/input.css' %}">
+<link rel="stylesheet" href="{% static 'css/button-login.css' %}">
+<form method="POST" class="signin-page">
+    {%csrf_token%}
+    <div class="form-group-logo-signin">
+        <img src="images/bg.jpg" alt="" width="20%">
+    </div>
+    <div class="form-group-google-signin">
+       {%for message in messages%}
+            <p class="message">{{message}}</p>
+       {%endfor%} 
+    </div>
+    <div class="form-group-text-signin">
+        <div>Sign In Here</div>
+    </div>
+    <div class="form-group-email">
+        <input type="text" id="email" name="username" placeholder="Username">
+        <label for="Username">Username</label>
+    </div>
+    <div class="form-group-pass">
+        <input type="password" name="password" id="pwd" placeholder="Password">
+        <label for="pwd">Password </label>
+    </div>
+    <button type="submit" class="signin-btn">SIGN-IN</button>
+    <div class="form-group-signup">
+        <div>New User? <a href="{%url 'register'%}">Sign-up </a></div>
+    </div>
+
+</form>
+{%endblock%}
