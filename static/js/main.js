@@ -93,3 +93,13 @@ function updateOrderItem(productId,action){
         location.reload();    
     })
 }
+
+let viewBtn = document.getElementsByClassName('view-btn');
+for (let index = 0; index < viewBtn.length; index++) {
+        viewBtn[index].addEventListener('click', function(){
+            let prod_id = this.dataset.productid;
+            // console.log(prod_id);
+            location.href = `product/?id=${prod_id}`;
+        })
+    
+}

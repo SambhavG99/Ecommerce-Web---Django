@@ -10,7 +10,7 @@
     </div>
     <div class="form-group-google-signin">
        {%for message in messages%}
-            <p class="message">{{message}}</p>
+            <p class="message" id="flash-msg">{{message}}</p>
        {%endfor%} 
     </div>
     <div class="form-group-text-signin">
@@ -30,4 +30,11 @@
     </div>
 
 </form>
+<script>
+    let flashmsg_value = document.getElementById("flash-msg").innerHTML;
+    let flashmsg = flashmsg_value.split(" ");
+    if(flashmsg[0] == "Account"){
+        document.getElementById('email').setAttribute('value',flashmsg[4]);
+    }
+</script>
 {%endblock%}

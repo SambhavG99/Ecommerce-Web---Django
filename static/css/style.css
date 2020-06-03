@@ -4,8 +4,9 @@
 }
 
 body{
-    background-color: rgb(126, 126, 126);
-    font-family: Roboto, sans-serif;
+    background: rgb(7,204,155);
+    background: linear-gradient(0deg, rgba(7,204,155,1) 0%, rgba(8,77,135,1) 100%);
+    font-family: 'Roboto', sans-serif;
     position: relative;
  
 }
@@ -153,7 +154,17 @@ body{
   position: absolute;
   right: 13px;
   bottom: 9px;
-
+  border: 3px solid pink;
+}
+.view-btn{
+  cursor: pointer;
+  padding: 7px 14px;
+  border:none;
+  border-radius: 8px;
+  color: #000;
+  position: absolute;
+  left: 13px;
+  bottom: 9px;
   border: 3px solid pink;
 }
 .container{
@@ -181,6 +192,46 @@ body{
     top: 30%;
     
 }
-
-
+#search{
+  display: block;
+  margin: auto;
+  width: 45rem;
+}
+.form-fields{
+  position: relative;
+  width: fit-content;
+  margin: 25px auto;
+}
+#search label{
+  display: none;
+}
+#search input[type=text]{
+  padding: 4px 15px 4px 24px;
+  width: 30rem;
+  height: 1.8rem;
+  border-radius: 22px;
+  border:none;
+  outline: none;
+  margin: 5px auto;
+}
+#search button[type=submit]{
+  cursor: pointer;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  right: 15px;
+  text-transform: uppercase;
+  top: 16px;
+  font-size: 14px;
+  color:rgba(8,77,135,1) ;
+}
+@media screen and (max-width:768px){
+  #search input[type=text]{
+  width: 15rem;
+  }
+  #search{
+    width: 100%;
+  }
+}
 

@@ -8,6 +8,7 @@ from django.http import JsonResponse
 import json
 import datetime
 from .utils import cookieCart
+from .filters import ProductFilter
 
 # Create your views here.
 def store(request):
@@ -15,17 +16,38 @@ def store(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, completed=False)
         items = order.orderitem_set.all()
+        items_dictionary = {}
+        # for item in items:
+        #     items_dictionary.update( {item.product : item.quantity} )
+        # print(items_dictionary)
     else:
         cartData = cookieCart(request)
-        
-        order = cartData["order"]  
+        items_dictionary={}
+        order = cartData["order"] 
+        items = cartData["items"]
 
     products = Product.objects.all()
+    myFilter = ProductFilter(request.GET, queryset=products)
+    products = myFilter.qs
     context = {
+        "myFilter":myFilter,
+        "items":items_dictionary,
         "order": order,
         "products" : products
     }
     return render(request,'store/store.html',context)
+
+
+def home(request):
+    context = {}
+    return render(request,"store/home.html",context)
+def product(request):
+    product_id = request.GET.get("id")
+    product = Product.objects.get(id=product_id)
+    context = {
+        "product":product
+    }
+    return render(request,"store/product.html",context)
 
 def cart(request):
     if request.user.is_authenticated:
@@ -166,7 +188,7 @@ def register(request):
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             user = User.objects.get(username=username)
-            Customer.objects.create(user=user,name="user",email=email)
+            Customer.objects.create(user=user,name=username,email=email)
             
             messages.success(request,"Account was created for " + username)
             return redirect("login")

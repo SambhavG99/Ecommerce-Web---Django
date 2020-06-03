@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Tenali+Ramakrishna&display=swap');
+html,body{
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+nav{
+    display: flex !important;
+}
+p{
+    margin-top: unset;
+    margin-bottom: unset;
+}
+.row{
+    margin-right: unset !important;
+    margin-left: unset !important;
+}
+.fade{
+    opacity: 1 !important;
+}
+.banner-container{
+    margin: 15px 28px;
+}
+.banner-container img{
+    width: 100%;
+}
+.NA-main img{
+    width: 100%;
+    height: 100%;
+}
+.sub-heading{
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 6px 18px;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    width: 81%;
+    transition: all ease-in-out;
+    margin: 15px auto;
+}
+.col-sm-6{
+    padding-left: unset !important;
+    padding-right: unset !important;
+    background-color: #fff;
+    transition: 0.3s ease-in-out;
+}
+.NA-grid .col-sm-6:hover{
+    box-shadow: 0 0 11px 2px black;
+    z-index: 15;
+}
+.NA-fresh:hover{
+    box-shadow: 0 0 11px 2px black;
+    z-index: 15; 
+}
+.NA-main{
+    padding: 45px 150px;
+}
+.img-container img{
+    width: 150px;
+    display: block;
+    margin:auto;
+}
+.star-card h6{
+    text-align: center;
+}
+.star-card p{
+    margin-bottom: 8px;
+}
+.star-card{
+    width: 15rem;
+    background-color: #fff;
+    padding-left:8px;
+    padding-top: 15px;
+    padding-bottom: 8px;
+    border: 3px solid #FF4B2A;
+    padding-right: 8px;;
+    margin: 18px 27px;
+}
+.btn-star{
+    border:none;
+    color:#fff;
+    background: #FF416C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding:4px 7px;
+    width: 100%;
+}
+.shape-rect{
+    margin-left: -207px;
+    margin-top: -252px;
+    position: absolute;
+    height: 8rem;
+    width: 25rem;
+    transform: rotate(-45deg);
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity:0.9;
+    animation: pulse 1s ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transition: all ease-in-out;
+    z-index: -1;
+}
+.bubble{
+    position: absolute;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity:0.9;
+    animation: pulse 1s ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transition: all ease-in-out;
+    z-index: -1;
+}
+@keyframes pulse{
+    0%{
+        box-shadow: 0 0 2px 0px #FF4B2B;
+    }
+    50%{
+        box-shadow: 0 0 20px 0px #FF4B2B;
+    }
+    100%{
+        box-shadow: 0 0 2px 0px #FF4B2B;
+    }
+    
+}
+.banner-row{
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+@media screen and (max-width:768px){
+    .NA-main{
+        padding: 45px 55px;
+    }
+}

@@ -159,7 +159,11 @@ label{
 .errorlist{
     text-align: center;
     left: 0%;
-    top: 17%;
+    top: -19%;
+    margin: auto;
+    width: 90%;
+    border-radius: 8px;
+    background: hotpink;
     padding: 6px;
     position: relative;
 }

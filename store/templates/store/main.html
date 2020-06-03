@@ -20,12 +20,14 @@
       <p class="logo-name"><a href="{% url 'store' %}" style="text-decoration: none;color:#fff;">Xandro</a></p>
       <div class="show-desktop">
           <ul>
-              <li><a href="{% url 'store' %}">Home</a></li>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'store' %}">Shop</a></li>
               <li><a href="{% url 'prev_order' %}">Orders</a></li>
               <li><a href="{% url 'cart' %}"><i class="fab fa-opencart"></i>   Cart</a>{% if order.get_cart_items >= 0 %}<span class='cart-items'>{{order.get_cart_items}}</span>{%endif%}</li>
-              <li><a href="{%url 'login'%}"><i class="fas fa-user" ></i></a></li>
               {%ifnotequal request.user|stringformat:"s" "AnonymousUser" %}
               <li><a href="{%url 'logout'%}">Log Out</a></li>
+              {%else%}
+              <li><a href="{%url 'login'%}"><i class="fas fa-user" ></i></a></li>
               {%endifnotequal%}
           </ul>
       </div>
@@ -38,12 +40,15 @@
           <div>
               <div>
               <ul>
-                  <li><a href="{% url 'store' %}">Home</a></li>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'store' %}">Shop</a></li>
                   <li><a href="{% url 'prev_order' %}">Orders</a></li>
                   <li><a href="{% url 'cart' %}"><i class="fab fa-opencart"></i>   Cart</a>{% if order.get_cart_items >= 0 %}<span class='cart-items'>{{order.get_cart_items}}</span>{%endif%}</li>
-                  <li><a href="{%url 'login'%}"><i class="fas fa-user" ></i>     Login</a></li>
+                  
                   {%ifnotequal request.user|stringformat:"s" "AnonymousUser" %}
                   <li><a href="{%url 'logout'%}">Log Out</a></li>
+                  {%else%}
+                  <li><a href="{%url 'login'%}"><i class="fas fa-user" ></i>     Login</a></li>
                   {%endifnotequal%}
               </ul>
               </div>

@@ -1,0 +1,32 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{%block content%}
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <div class="productContainer">
+        
+        <img src="{{product.imageURL}}" alt="phone">
+        <div class="productDetailsAll">
+            <h1>{{product.name}}</h1>
+            <br>
+            <p>M.R.P.: <span>Rs. {{product.price}}</span></p>
+            <p style=" color: green">In Stock</p>
+            <br>
+            <p>Delivered By: <span>10/02/20</span></p>
+            <br>
+            <p>{{product.description}}</p>
+            <!-- <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
+            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p>  -->
+            <br>
+            <button data-product="{{product.id}}" data-action="add" class="add-to-cart update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
+        </div>
+    </div>
+    
+{%endblock%}

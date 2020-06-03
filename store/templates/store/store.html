@@ -1,6 +1,7 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {%block content%}
+
     <!-- Slideshow container -->
     <div class="slideshow-container">
 
@@ -49,6 +50,12 @@
             </ul>
       </div>-->
       <!-- Category Bar Ends -->
+      <form action="" method="get" id="search">
+        <div class="form-fields">
+          {{myFilter.form}}
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+      </form>
 <div class="product-container" style="padding:0">    
   <div class="row" style="display: flex; flex-wrap: wrap;padding: 85px;justify-content: center;">
   {%for product in products %}
@@ -65,12 +72,22 @@
           </div>
           <span class="name" style="font-size: 16px;color:#000;">{{product.name}}</span>
           <span class="price" style="font-size: 12px;color:#000;">₹{{product.price|floatformat:2}}</span>
-          
-              <button data-product="{{product.id}}" data-action="add" class="add-btn update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
-             
+              <button data-productid="{{product.id}}" data-action="view" class="view-btn">View</button>
+              {%if product.name|stringformat:"s" in items|stringformat:"s"  %}
+              <button data-product="{{product.id}}" data-action="add" class="add-btn update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>+/- {{order.id}}</button>
+              {%else%}
+                <button data-product="{{product.id}}" data-action="add" class="add-btn update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
+              {%endif%}
       </div>
+  {%empty%}
+  <h2 align="center">Sorry...No Such Product Found....Try searching "Iphone" or "book"</h2>
+
   {%endfor%}  
 </div>  
 </div>
+<script>
+  document.getElementById('id_name').setAttribute('placeholder','Search Products');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
 <script src="{%static 'js/script.js'%}" ></script> 
 {%endblock%}
