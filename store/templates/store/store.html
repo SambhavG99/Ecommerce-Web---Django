@@ -1,6 +1,30 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {%block content%}
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+<!-- NEW ADDED -->
+<!-- Slider -->
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="{%static 'images/banner1.jpg'%}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{%static 'images/banner2.jpg'%}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{%static 'images/banner3.jpg'%}" alt="">
+        </div>
+    </div>
+    
+    <!-- Add Arrows -->
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+</div>
+
+<!-- Slider -->
+<!-- NEW ADDED -->
 
     <!-- Slideshow container -->
     <div class="slideshow-container">
@@ -86,8 +110,23 @@
 </div>  
 </div>
 <script>
-  document.getElementById('id_name').setAttribute('placeholder','Search Products');
+  document.getElementById('id_tags').setAttribute('placeholder','Search Products');
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      effect: 'fade',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+</script>
 <script src="{%static 'js/script.js'%}" ></script> 
 {%endblock%}

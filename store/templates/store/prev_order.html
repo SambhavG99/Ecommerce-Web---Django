@@ -7,10 +7,9 @@
     Your Order History
     <p style="text-align: center;color:#fff;margin-top: 8px;">Total Orders : <strong>{{orders|length}}</strong></p>
     </p>
+    <div class="order-container" style="display: flex;flex-wrap: wrap;justify-content: center;">
 {%for order in orders reversed%}
-<hr>
-<h3 align="center" style="color: #fff;">Order ID: {{order.id}}</h3>
-<div class="order-container" style="display: flex;flex-wrap: wrap;justify-content: center;"> 
+
     {%for item in items%}
         {%if order.id == item.order.id%}
     <!-- Orders Card --> 
@@ -20,7 +19,8 @@
                 <div class="front-text">
                     <h3 class="order-date">{{item.product.name}}</h3><span id="order-date">Quantity: {{item.quantity}}</span>
                     <div class="product-pic">
-                        <img class="product-img" src="{{item.product.imageURL}}" alt="image">
+                        <!-- <img src='images/large/image1.png' /> -->
+                        <img id="zoom_01"  class="product-img" src="{{item.product.imageURL}}" data-zoom-image="{%static 'images/headphones.jpg'%}" alt="image">
                     </div>
                     <div class="product-name">Delivered on {{item.date_added}}</div>
                     
@@ -44,6 +44,8 @@
     {%endif%}
     {%endfor%}
     <!-- Orders Card Ends -->
-</div>
+
 {%endfor%}
+</div>
+
 {%endblock%}

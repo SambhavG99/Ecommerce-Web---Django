@@ -4,7 +4,7 @@
     width: 35vh;
     height: 50vh;
     margin:18px 25px;
-    border-radius: 20px;
+    border-radius: 8px;
     -webkit-box-shadow: 8px 8px 21px 0px rgba(46, 50, 50, 0.75);
     -moz-box-shadow:    8px 8px 21px 0px rgba(46, 50, 50, 0.75);
     box-shadow:         8px 8px 21px 0px rgba(46, 50, 50, 0.75);
@@ -26,7 +26,7 @@
     font-size: .8em;
     cursor: pointer;
     z-index: 0;
-    background-color: #2A9D8F;
+    background-color: rgb(7,204,155);
     width: 221px;
     height: 230px;
     text-align: end;
@@ -54,8 +54,7 @@
 .product{
     display:block;
     margin: 18px auto;
-    background-color: rgba(195, 200, 255, 0.867) ;
-    background-image: url("images/headphones.jpg");
+    background-color: #FFF ;
     background-size: cover;
     width: 210px;
     height: 190px;
@@ -122,6 +121,10 @@
     font-size: .6rem;
     font-weight: 200;
 }
-
+@media screen and (max-width:768px){
+.product{
+    width:245px;
+}
+}
 
 

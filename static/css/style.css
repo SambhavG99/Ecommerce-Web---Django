@@ -14,6 +14,7 @@ body{
 /****** Slideshow container ******/
 
 .slideshow-container {
+  display: none;
     max-width: 1000px;
     position: relative;
     margin: auto;
@@ -21,7 +22,7 @@ body{
     -moz-box-shadow:    8px 8px 21px 0px rgba(46, 50, 50, 0.75);
     box-shadow:         8px 8px 21px 0px rgba(46, 50, 50, 0.75);
 }
-  
+   
   /* Hide the images by default */
   .mySlides {
     display: none;
@@ -149,23 +150,25 @@ body{
   cursor: pointer;
   padding: 7px 14px;
   border:none;
-  border-radius: 8px;
+  border-radius: 2px;
   color: #000;
   position: absolute;
   right: 13px;
   bottom: 9px;
-  border: 3px solid pink;
+  background: rgb(7,204,155);
+  border: 3px solid rgb(7,204,155);
 }
 .view-btn{
   cursor: pointer;
   padding: 7px 14px;
   border:none;
-  border-radius: 8px;
+  border-radius: 2px;
   color: #000;
   position: absolute;
   left: 13px;
+  background: rgb(7,204,155);
   bottom: 9px;
-  border: 3px solid pink;
+  border: 3px solid rgb(7,204,155);
 }
 .container{
   position: relative;
@@ -233,5 +236,26 @@ body{
   #search{
     width: 100%;
   }
+  .slideshow-container{
+    display: unset;
+  }
+  .swiper-wrapper{
+    width: 100%;
+  }  
+  .swiper-container{
+    display: none;
+    height: 22vh;
+  }
+  .swiper-container img{
+    width:100%;
+    height:22vh !important;
+  }
+
+}
+.swiper-container{
+  height: 80vh;
+}
+.swiper-container img{
+    height: inherit;
 }
 

@@ -42,10 +42,18 @@ def home(request):
     context = {}
     return render(request,"store/home.html",context)
 def product(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, completed=False)
+    else:
+        cartData = cookieCart(request)
+        order = cartData["order"] 
+
     product_id = request.GET.get("id")
     product = Product.objects.get(id=product_id)
     context = {
-        "product":product
+        "order":order,
+        "product":product,
     }
     return render(request,"store/product.html",context)
 

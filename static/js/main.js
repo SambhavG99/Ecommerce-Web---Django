@@ -99,7 +99,12 @@ for (let index = 0; index < viewBtn.length; index++) {
         viewBtn[index].addEventListener('click', function(){
             let prod_id = this.dataset.productid;
             // console.log(prod_id);
-            location.href = `product/?id=${prod_id}`;
+            let hostname = window.location.hostname;
+            if(hostname == "localhost"){
+                location.href = `http://${hostname}:8000/product/?id=${prod_id}`;
+            } else {
+                location.href = `http://${hostname}/product/?id=${prod_id}`;
+            }
         })
     
 }

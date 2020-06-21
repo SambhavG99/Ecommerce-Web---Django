@@ -17,8 +17,8 @@ body{
     justify-content: space-evenly;
     padding: 20px;
     margin: 20px;
-    background:rgb(238,174,202);
-    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+background: #fff;
+color:#000;
     border-radius: 10px;
     max-height: 75vh;
 }

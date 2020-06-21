@@ -21,6 +21,7 @@ body{
     background-color: transparent;
     width: 282px;
     max-width: 400px;
+    color: #fff;
     height: 332px;
     perspective: 1000px;
     margin: 50px;
@@ -29,7 +30,8 @@ body{
 
 .order-card-inner{
     position: relative;
-    background-color: #ADA8B6;
+    background: #FFF;
+    color:#000;
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -54,7 +56,8 @@ body{
 }
 
 .order-card-back{
-    background-color: #ADA8B6;
+    background: #FFF;
+    color:#000;
     transform: rotateY(180deg);
     border-radius: 10px;
 

@@ -6,7 +6,7 @@
 
     <div class="productContainer">
         
-        <img src="{{product.imageURL}}" alt="phone">
+        <img id="zoom_01" src="{{product.imageURL}}" data-zoom-image="{{product.imageURL}}" alt="image">
         <div class="productDetailsAll">
             <h1>{{product.name}}</h1>
             <br>
@@ -28,5 +28,10 @@
             <button data-product="{{product.id}}" data-action="add" class="add-to-cart update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
         </div>
     </div>
+    <script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script> -->
+    <script>
+        $('#zoom_01').ezPlus();
+    </script>
     
 {%endblock%}
