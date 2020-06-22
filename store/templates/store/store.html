@@ -2,6 +2,30 @@
 {% load static %}
 {%block content%}
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+ <!-- SideBar -->
+ <div class="sideBar">
+  <div class="menuBtn">
+    <div class="hamburgerMenu"></div>
+  </div>
+  <div class="navMenu">
+    <ul>
+      <li>
+        Categories
+        <ul>
+          <li><a href="/store?category=electronics">Electronics</a></li>
+          <li><a href="/store?category=books">Books</a></li>
+          <li><a href="/store?category=digital">Digital</a></li>
+          <li><a href="/store?category=watch">Watch</a></li>
+          <li><a href="/store?category=wear">Wear</a></li>
+          <li><a href="/store?category=smartphone">Smartphones</a></li>
+          <li><a href="/store?category=laptop">Laptop</a></li>
+          <li><a href="/store?category=consumer">Consumer Goods</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- SideBar -->
 <!-- NEW ADDED -->
 <!-- Slider -->
 
@@ -128,5 +152,24 @@
       },
     });
 </script>
+  <!-- NEW ADDED -->
+  <script>
+    const menuBtn = document.querySelector('.menuBtn');
+    let menuOpen = false;
+    const navMenu = document.querySelector('.navMenu')
+
+    menuBtn.addEventListener('click', () => {
+        if(!menuOpen) {
+          menuBtn.classList.add('open');
+            menuOpen = true;
+            navMenu.classList.add('menuOpen')
+        } else {
+            menuBtn.classList.remove('open');
+            menuOpen = false;
+            navMenu.classList.remove('menuOpen')
+        }
+    });
+  </script>
+  <!-- NEW ADDED -->
 <script src="{%static 'js/script.js'%}" ></script> 
 {%endblock%}

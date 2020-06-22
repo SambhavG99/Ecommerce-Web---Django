@@ -16,6 +16,7 @@ class Product(models.Model):
     digital = models.BooleanField(default=False)
     image = models.ImageField(null=True,blank=True)
     description = models.CharField(max_length=200,null=True)
+    features = models.CharField(max_length=200,null=True)
     tags = models.CharField(max_length=200,null=True)
     category = models.CharField(max_length=200,null=True)
 

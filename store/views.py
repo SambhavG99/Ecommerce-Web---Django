@@ -51,7 +51,10 @@ def product(request):
 
     product_id = request.GET.get("id")
     product = Product.objects.get(id=product_id)
+    features = product.features.split(',')
+
     context = {
+        "features":features,
         "order":order,
         "product":product,
     }

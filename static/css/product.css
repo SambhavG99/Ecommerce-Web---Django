@@ -58,11 +58,16 @@ a{
     border-radius:7px;
     border: none;
     color: #fff;
-    background: #FF416C;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3*/
-}
+    background-color: rgb(7,204,155);
 
+}
+.features{
+    padding-left:2rem;
+    margin-top:15px;
+}
+.features li{
+    margin-top:1rem;
+}
 @media screen and (max-width: 768px){
     body{
         height: unset;

@@ -5,3 +5,155 @@ body{
 .hidden{
     display: none !important;
 }
+/* NEW ADDED */
+.footer-2{
+    height:4rem;
+    text-align: center;
+    padding-top: 1rem;
+    background: rgb(7,204,155);
+    background: linear-gradient(180deg, rgba(7,204,155,1) 0%, rgba(8,77,135,1) 100%);
+    color:#fff;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+}
+/* SideBar */
+
+.sideBar{
+    position: absolute;
+    top: 0;
+
+}
+
+.menuBtn{
+    padding: 10px 2px;
+    position: relative;
+    top: 26px;
+    left: 5px;
+    width:50px;
+    transition: all 0.3s ease-in-out;
+    z-index: 3;
+}
+
+.hamburgerMenu{
+    position: absolute;
+    background-color: white;
+    width: 25px;
+    height: 4px;
+    top: 8%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    z-index: 3;
+}
+
+.hamburgerMenu::before,
+.hamburgerMenu::after{
+    content: '';
+    position: absolute;
+    background-color: white;
+    width: 35px;
+    height: 4px;
+    top: 50%;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.hamburgerMenu::before{
+    transform: translateY(-13px);
+    
+}
+
+.hamburgerMenu::after{
+    transform: translateY(9px);
+
+}
+
+.menuBtn.open .hamburgerMenu{
+    position: fixed;
+    transform: translate(20px, -50%);
+    background: transparent;
+
+}
+
+.menuBtn.open .hamburgerMenu::before{
+    transform: rotate(45deg) translate(-0px , 0%)
+}
+
+.menuBtn.open .hamburgerMenu::after{
+    transform: rotate(-45deg) translate(0px , 0%)
+
+}
+/* Hamburger Styling and Animation */
+
+.navMenu{
+    position: absolute;
+    background-color: #0d2735;
+    width: 50vh;
+    height: 100vh;
+    top: 0;
+    left: -70vh;
+    opacity: 0.9;
+    overflow: hidden;
+    z-index: 2;
+    transition: all 0.4s ease-in-out;
+}
+
+.navMenu ul{
+    padding: 30% 40% 20% 10%;
+
+}
+
+.navMenu ul li{
+    padding: 10px;
+    list-style: none;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+}
+
+.navMenu ul li ul{
+    padding: 20px;
+}
+
+.navMenu ul li a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+.navMenu ul li a:hover{
+    color: #bdbdbd;
+    transition: all 0.2s;
+}
+
+.navMenu ul li a:hover::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background-color: rgb(161, 201, 219);
+    bottom: -5px;
+    left: 0;
+    border-radius: 10px;
+    animation: hoverMenu 0.2s ease-in-out;
+}
+
+@keyframes hoverMenu{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 50px;
+    }  
+}
+
+.navMenu.menuOpen{
+    left: 0px;
+    position: fixed;
+}
+
+
+/* SideBar */
+
+/* NEW ADDED */

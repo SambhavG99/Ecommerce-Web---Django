@@ -16,14 +16,13 @@
             <p>Delivered By: <span>10/02/20</span></p>
             <br>
             <p>{{product.description}}</p>
-            <!-- <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p> 
-            <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens</p>  -->
+            <br>
+            <h4 class="feature-heading">Features: </h4>
+            <ul class="features">
+               {% for feature in features%}
+                    <li>{{feature}}</li>
+               {%endfor%}
+            </ul>
             <br>
             <button data-product="{{product.id}}" data-action="add" class="add-to-cart update-cart" onclick="this.innerHTML = 'Adding to Cart...<i class=\'fas fa-cart-plus\'></i>'; this.style.background = '#7CEC9F' "><i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 10px;"></i>Add to Cart</button>
         </div>

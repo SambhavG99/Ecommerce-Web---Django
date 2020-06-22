@@ -153,7 +153,7 @@ body{
   border-radius: 2px;
   color: #000;
   position: absolute;
-  right: 13px;
+  right: 11px;
   bottom: 9px;
   background: rgb(7,204,155);
   border: 3px solid rgb(7,204,155);
@@ -165,7 +165,7 @@ body{
   border-radius: 2px;
   color: #000;
   position: absolute;
-  left: 13px;
+  left: 6px;
   background: rgb(7,204,155);
   bottom: 9px;
   border: 3px solid rgb(7,204,155);
@@ -228,6 +228,9 @@ body{
   top: 16px;
   font-size: 14px;
   color:rgba(8,77,135,1) ;
+}
+#id_category{
+  display:none;
 }
 @media screen and (max-width:768px){
   #search input[type=text]{
